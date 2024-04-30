@@ -38,4 +38,6 @@ router.get('/users', controllers.users.getUsers);
 
 router.put('/updateTier', controllers.users.updateTier);
 
+router.post('/promo', controllers.promo.createPromo);
+
 module.exports = router;
