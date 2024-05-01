@@ -14,5 +14,8 @@ module.exports = {
   updatePromo: (req, res) => {
     const {id, korTitle, engTitle, url, korDetail, engDetail} = req.query;
     models.promo.updatePromo(id, korTitle, engTitle, url, korDetail, engDetail, (data) => res.send(data));
+  },
+  loadActivePromos: (req, res) => {
+    models.promo.loadActivePromos((data) => res.send(data));
   }
 }

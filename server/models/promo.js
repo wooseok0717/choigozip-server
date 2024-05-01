@@ -22,5 +22,9 @@ module.exports = {
     const values = [korTitle, engTitle, url, korDetail, engDetail,id];
     db.query(text, values)
     .then(() => cb('data has been updated'));
+  },
+  loadActivePromos: (cb) => {
+    db.query('SELECT * FROM promo WHERE active = TRUE')
+    .then(({rows}) => cb(rows));
   }
 }
