@@ -10,5 +10,9 @@ module.exports = {
   },
   deletePromo: (req, res) => {
     models.promo.deletePromo(req.query.id, (data) => res.send(data));
+  },
+  updatePromo: (req, res) => {
+    const {id, korTitle, engTitle, url, korDetail, engDetail} = req.query;
+    models.promo.updatePromo(id, korTitle, engTitle, url, korDetail, engDetail, (data) => res.send(data));
   }
 }
