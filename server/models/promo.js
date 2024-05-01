@@ -8,5 +8,13 @@ module.exports = {
     .then(() => {
       cb('promo has been created');
     })
+  },
+  getPromos: (cb) => {
+    db.query('SELECT * FROM promo')
+    .then(({rows}) => cb(rows));
+  },
+  deletePromo: (id, cb) => {
+    db.query(`DELETE FROM promo WHERE id = ${id}`)
+    .then(() => cb('item has been deleted'));
   }
 }
