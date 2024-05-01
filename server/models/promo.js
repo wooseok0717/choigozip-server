@@ -26,5 +26,14 @@ module.exports = {
   loadActivePromos: (cb) => {
     db.query('SELECT * FROM promo WHERE active = TRUE')
     .then(({rows}) => cb(rows));
+  },
+  activatePromo: (id, active, cb) => {
+    if (active === 'true') {
+      db.query(`UPDATE promo SET active = FALSE WHERE id = ${id} RETURNING active`)
+      .then(({rows}) => cb(rows[0].active));
+    } else {
+      db.query(`UPDATE promo SET active = TRUE WHERE id = ${id} RETURNING active`)
+      .then(({rows}) => cb(rows[0].active));
+    }
   }
 }

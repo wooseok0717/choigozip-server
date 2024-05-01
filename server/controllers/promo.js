@@ -17,5 +17,9 @@ module.exports = {
   },
   loadActivePromos: (req, res) => {
     models.promo.loadActivePromos((data) => res.send(data));
+  },
+  activatePromo: (req, res) => {
+    const {id, active} = req.query;
+    models.promo.activatePromo(id, active, (data) => res.send(data))
   }
 }

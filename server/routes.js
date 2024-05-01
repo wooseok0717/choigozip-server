@@ -48,4 +48,6 @@ router.put('/promo', controllers.promo.updatePromo);
 
 router.get('/activePromos', controllers.promo.loadActivePromos);
 
+router.put('/activatePromo',controllers.promo.activatePromo);
+
 module.exports = router;
