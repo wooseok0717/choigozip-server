@@ -15,8 +15,13 @@ module.exports = {
     });
   },
   loadSalesReport: (page, offset, cb) => {
-    console.log(page, offset);
     db.query(`SELECT * FROM sales ORDER BY created_at DESC LIMIT ${Number(offset)} OFFSET ${Number(page - 1) * Number(offset)}`)
     .then(({rows}) => cb(rows));
+  },
+  getMaxPage: (offset, cb) => {
+    db.query('SELECT id FROM sales')
+    .then(({rows}) => {
+      cb({maxPage: Math.ceil(rows.length/Number(offset))});
+    });
   }
 }

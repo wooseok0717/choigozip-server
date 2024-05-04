@@ -8,5 +8,10 @@ module.exports = {
   loadSalesReport: (req, res) => {
     const {page, offset} = req.query;
     models.sales.loadSalesReport(page, offset, (data) => res.send(data));
+  },
+  getMaxPage: (req, res) => {
+    models.sales.getMaxPage(req.query.offset, (data) => {
+      res.send(data)
+    });
   }
 }
