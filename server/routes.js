@@ -50,4 +50,6 @@ router.get('/activePromos', controllers.promo.loadActivePromos);
 
 router.put('/activatePromo',controllers.promo.activatePromo);
 
+router.post('/salesReport', controllers.sales.createSalesReport);
+
 module.exports = router;
