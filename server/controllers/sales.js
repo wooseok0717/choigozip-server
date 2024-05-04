@@ -6,6 +6,7 @@ module.exports = {
     models.sales.createSalesReport(selectedDate, cashSales, creditSales, totalSales, creditTip, cashTip, totalTip, (data) => res.send(data));
   },
   loadSalesReport: (req, res) => {
-    models.sales.loadSalesReport((data) => res.send(data));
+    const {page, offset} = req.query;
+    models.sales.loadSalesReport(page, offset, (data) => res.send(data));
   }
 }

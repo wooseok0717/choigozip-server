@@ -14,8 +14,9 @@ module.exports = {
       }
     });
   },
-  loadSalesReport: (cb) => {
-    db.query('SELECT * FROM sales ORDER BY created_at DESC LIMIT 25')
+  loadSalesReport: (page, offset, cb) => {
+    console.log(page, offset);
+    db.query(`SELECT * FROM sales ORDER BY created_at DESC LIMIT ${Number(offset)} OFFSET ${Number(page - 1) * Number(offset)}`)
     .then(({rows}) => cb(rows));
   }
 }
