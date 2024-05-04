@@ -13,5 +13,9 @@ module.exports = {
         .then(() => cb('hello report has been created'));
       }
     });
+  },
+  loadSalesReport: (cb) => {
+    db.query('SELECT * FROM sales ORDER BY created_at DESC LIMIT 25')
+    .then(({rows}) => cb(rows));
   }
 }
