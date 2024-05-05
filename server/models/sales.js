@@ -23,5 +23,18 @@ module.exports = {
     .then(({rows}) => {
       cb({maxPage: Math.ceil(rows.length/Number(offset))});
     });
+  },
+  getStats: (cb) => {
+    // cb('hello from models');
+    db.query(`SELECT
+        ROUND(AVG(total_sales), 2) AS average_sales,
+        MAX(total_sales) AS highest_sales,
+        MIN(total_sales) AS lowest_sales,
+        (SELECT total_sales FROM sales ORDER BY created_at DESC LIMIT 1) AS most_recent_sales,
+        (SELECT created_at FROM sales ORDER BY created_at DESC LIMIT 1) AS most_recent_date
+      FROM
+        sales;`
+    )
+    .then(({rows}) => cb(rows[0]));
   }
 }

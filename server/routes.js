@@ -56,4 +56,6 @@ router.get('/salesReport', controllers.sales.loadSalesReport);
 
 router.get('/salesReport/maxPage', controllers.sales.getMaxPage);
 
+router.get('/stats', controllers.sales.getStats);
+
 module.exports = router;

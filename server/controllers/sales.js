@@ -13,5 +13,8 @@ module.exports = {
     models.sales.getMaxPage(req.query.offset, (data) => {
       res.send(data)
     });
+  },
+  getStats: (req, res) => {
+    models.sales.getStats((data) => res.send(data));
   }
 }

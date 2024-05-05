@@ -44,3 +44,18 @@ CREATE TABLE menu (
   img_url TEXT,
   order_id SERIAL
 );
+
+-- CREATE TABLE sales (
+--   id SERIAL PRIMARY KEY,
+--   created_at DATE,
+--   cash_sales NUMERIC(10, 2),
+--   credit_sales NUMERIC(10, 2),
+--   total_sales NUMERIC(10, 2),
+--   credit_tip NUMERIC(10, 2),
+--   cash_tip NUMERIC(10, 2),
+--   total_tip NUMERIC(10, 2)
+-- )
+
+-- ALTER COLUMN credit_tip TYPE NEMERIC(10,2);
+
+-- DELETE FROM sales WHERE id = 0;
