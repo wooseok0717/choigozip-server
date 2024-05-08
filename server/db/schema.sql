@@ -59,3 +59,10 @@ CREATE TABLE menu (
 -- ALTER COLUMN credit_tip TYPE NEMERIC(10,2);
 
 -- DELETE FROM sales WHERE id = 0;
+
+CREATE TABLE records (
+  id SERIAL PRIMARY KEY,
+  creator TEXT,
+  message TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -58,4 +58,6 @@ router.get('/salesReport/maxPage', controllers.sales.getMaxPage);
 
 router.get('/stats', controllers.sales.getStats);
 
+router.post('/record', controllers.record.createRecord);
+
 module.exports = router;
