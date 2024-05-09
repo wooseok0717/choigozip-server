@@ -66,3 +66,6 @@ CREATE TABLE records (
   message TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE records
+ADD COLUMN type TEXT;
