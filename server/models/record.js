@@ -6,5 +6,9 @@ module.exports = {
     const values = [creator, action, type];
     db.query(text, values)
     .then(() => cb('record has been created'));
+  },
+  loadHistory: (page, offset, cb) => {
+    db.query(`SELECT * FROM records ORDER BY created_at DESC`)
+    .then(({rows}) => cb(rows));
   }
 }

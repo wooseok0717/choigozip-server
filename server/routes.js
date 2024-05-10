@@ -60,4 +60,6 @@ router.get('/stats', controllers.sales.getStats);
 
 router.post('/record', controllers.record.createRecord);
 
+router.get('/history', controllers.record.loadHistory);
+
 module.exports = router;
