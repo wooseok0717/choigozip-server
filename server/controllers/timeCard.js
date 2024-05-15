@@ -8,9 +8,13 @@ module.exports = {
     });
   },
   getActivities: (req, res) => {
-    console.log('router',req.query);
     models.timeCard.getActivities(req.query.id, (data) => {
       res.send(data);
     });
+  },
+  deleteTimestamp: (req, res) => {
+    models.timeCard.deleteTimestamp(req.query.id, (data) => {
+      res.send(data);
+    })
   }
 }

@@ -62,4 +62,6 @@ router.post('/record', controllers.record.createRecord);
 
 router.get('/history', controllers.record.loadHistory);
 
+router.delete('/deleteTimestamp', controllers.timeCard.deleteTimestamp);
+
 module.exports = router;
