@@ -16,5 +16,9 @@ module.exports = {
   },
   getStats: (req, res) => {
     models.sales.getStats((data) => res.send(data));
+  },
+  getSalesWithDate: (req, res) => {
+    const {startDate, endDate} = req.query;
+    models.sales.getSalesWithDate(startDate, endDate, (data) => res.send(data));
   }
 }
