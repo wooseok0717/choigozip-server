@@ -18,7 +18,7 @@ module.exports = {
     .then(() => cb('item has been deleted'));
   },
   getTimeWithDate: (start, end, cb) => {
-    const text = `SELECT * FROM timecard WHERE time BETWEEN $1 AND $2 ORDER BY user_id, time`;
+    const text = `SELECT timecard.*, users.name FROM timecard JOIN users ON timecard.user_id = users.user_id WHERE timecard.time BETWEEN $1 AND $2 ORDER BY timecard.user_id, timecard.time;`;
     const values = [start, end];
     db.query(text,values)
     .then(({rows}) => cb(rows))
