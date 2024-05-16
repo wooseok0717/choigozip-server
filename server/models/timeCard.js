@@ -16,5 +16,11 @@ module.exports = {
   deleteTimestamp: (id, cb) => {
     db.query(`DELETE FROM timecard WHERE id = ${id}`)
     .then(() => cb('item has been deleted'));
+  },
+  getTimeWithDate: (start, end, cb) => {
+    const text = `SELECT * FROM timecard WHERE time BETWEEN $1 AND $2 ORDER BY user_id, time`;
+    const values = [start, end];
+    db.query(text,values)
+    .then(({rows}) => cb(rows))
   }
 }

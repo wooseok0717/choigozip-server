@@ -16,5 +16,9 @@ module.exports = {
     models.timeCard.deleteTimestamp(req.query.id, (data) => {
       res.send(data);
     })
+  },
+  getTimeWithDate: (req, res) => {
+    const {startDate, endDate} = req.query;
+    models.timeCard.getTimeWithDate(startDate, endDate, (data) => res.send(data));
   }
 }

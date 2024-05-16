@@ -38,7 +38,7 @@ module.exports = {
     .then(({rows}) => cb(rows[0]));
   },
   getSalesWithDate: (start, end, cb) => {
-    const text = `SELECT ROUND(AVG(total_sales), 2) AS average_sales, ROUND(AVG(total_tip),2) AS average_tip, SUM(total_sales) AS total_sales, SUM(total_tip) AS total_tip FROM sales WHERE created_at BETWEEN $1 AND $2`;
+    const text = `SELECT ROUND(AVG(total_sales), 2) AS average_sales, ROUND(AVG(total_tip),2) AS average_tip, SUM(total_sales) AS total_sales, SUM(total_tip) AS total_tip, SUM(cash_sales) AS total_cash_sales, SUM(cash_tip) AS total_cash_tip FROM sales WHERE created_at BETWEEN $1 AND $2`;
     const values = [start, end];
     db.query(text,values)
     .then(({rows}) => cb(rows));
