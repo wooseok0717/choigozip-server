@@ -2,70 +2,77 @@ const express = require('express');
 const router = express.Router();
 const controllers = require('./controllers')
 
+// SIGN UP / LOG IN
 router.get('/idExist', controllers.signUp.checkId);
 
 router.get('/checkCred', controllers.signUp.checkCred);
 
+router.get('/getCred', controllers.signUp.getCred);
+
 router.post('/createId', controllers.signUp.createId);
 
-router.get('/getCred', controllers.signUp.getCred);
+// TIMECARD
+router.get('/getActivities', controllers.timeCard.getActivities);
+
+router.get('/timeData', controllers.timeCard.getTimeWithDate);
 
 router.post('/createTimeStamp', controllers.timeCard.createTimeStamp);
 
-router.get('/getActivities', controllers.timeCard.getActivities);
+router.delete('/deleteTimestamp', controllers.timeCard.deleteTimestamp);
 
-router.post('/createCategory', controllers.menu.createCategory);
-
+// MENU
 router.get('/getCategories', controllers.menu.getCategories);
-
-router.put('/changeOrder/Category', controllers.menu.changeCategoryOrder);
-
-router.post('/menu', controllers.menu.createMenu);
 
 router.get('/menuList', controllers.menu.getMenuWithId);
 
-router.delete('/category', controllers.menu.deleteCategory);
+router.post('/createCategory', controllers.menu.createCategory);
+
+router.post('/menu', controllers.menu.createMenu);
+
+router.put('/changeOrder/Category', controllers.menu.changeCategoryOrder);
 
 router.put('/category', controllers.menu.changeCategoryData);
-
-router.delete('/menu', controllers.menu.deleteMenu);
 
 router.put('/changeOrder/menu', controllers.menu.changeMenuOrder);
 
 router.put('/menu', controllers.menu.changeMenuData);
 
+router.delete('/category', controllers.menu.deleteCategory);
+
+router.delete('/menu', controllers.menu.deleteMenu);
+
+// USER
 router.get('/users', controllers.users.getUsers);
 
 router.put('/updateTier', controllers.users.updateTier);
 
-router.post('/promo', controllers.promo.createPromo);
-
+// PROMO
 router.get('/promos', controllers.promo.getPromos);
-
-router.delete('/promo', controllers.promo.deletePromo);
-
-router.put('/promo', controllers.promo.updatePromo);
 
 router.get('/activePromos', controllers.promo.loadActivePromos);
 
+router.post('/promo', controllers.promo.createPromo);
+
+router.put('/promo', controllers.promo.updatePromo);
+
 router.put('/activatePromo',controllers.promo.activatePromo);
 
-router.post('/salesReport', controllers.sales.createSalesReport);
+router.delete('/promo', controllers.promo.deletePromo);
 
+// SALES
 router.get('/salesReport', controllers.sales.loadSalesReport);
 
 router.get('/salesReport/maxPage', controllers.sales.getMaxPage);
 
 router.get('/stats', controllers.sales.getStats);
 
+router.get('/salesDate', controllers.sales.getSalesWithDate);
+
+router.post('/salesReport', controllers.sales.createSalesReport);
+
+// RECORD
 router.post('/record', controllers.record.createRecord);
 
 router.get('/history', controllers.record.loadHistory);
-
-router.delete('/deleteTimestamp', controllers.timeCard.deleteTimestamp);
-
-router.get('/salesDate', controllers.sales.getSalesWithDate)
-
-router.get('/timeData', controllers.timeCard.getTimeWithDate);
 
 module.exports = router;
