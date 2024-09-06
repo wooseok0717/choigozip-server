@@ -13,6 +13,9 @@ The **Server/Database Application** serves as the backbone of the menu viewing s
 - 🚦 Request Handling: Efficiently processes multiple requests simultaneously.
 - 📝 Logging: Maintains a detailed record of staff actions and system interactions.
 
+## Database Schema
+<img width="500" alt="Screen Shot 2024-09-05 at 6 16 41 PM" src="https://github.com/user-attachments/assets/32f8d1ec-6fa2-45ad-8e6e-63bcef7556d1">
+
 ## API EndPoints
 <details>
   <summary>
